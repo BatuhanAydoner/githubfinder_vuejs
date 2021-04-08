@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-3">
-    <div class="row">
+    <transition-group name="fade" tag="div" class="row">
       <user v-for="(user, index) in users" :key="index" :user="user"></user>
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -24,3 +24,16 @@ export default {
   },
 };
 </script>
+
+<style>
+.div {
+  display: inline-block;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>

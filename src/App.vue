@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navbar title="GithubFinder-VUEJS" icon="fab fa-github"></navbar>
-    <router-view></router-view>
+    <transition name="slide">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -14,4 +16,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.slide-enter-active {
+  animation: slide-in 1s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(40px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+</style>
